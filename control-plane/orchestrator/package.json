@@ -1,0 +1,17 @@
+{
+  "name": "control-plane-orchestrator",
+  "version": "1.0.0",
+  "description": "Manages and executes multi-step workflows for the Android Control Plane.",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "morgan": "^1.10.0",
+    "dotenv": "^16.3.1",
+    "axios": "^1.6.0"
+  }
+}

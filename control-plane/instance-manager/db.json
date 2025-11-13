@@ -1,0 +1,12 @@
+{
+  "instances": [
+    {
+      "instanceId": "test-instance-001",
+      "address": "http://localhost:5000",
+      "deviceSerial": "emulator-5554",
+      "avdName": "test_android_instance",
+      "status": "registered",
+      "lastSeen": "2025-10-05T02:08:02.921Z"
+    }
+  ]
+}

@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="uis_description">The Universal Interaction Service for the Control Plane Agent. It allows the agent to perform UI actions.</string>
+</resources>

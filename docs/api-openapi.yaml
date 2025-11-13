@@ -1,0 +1,22 @@
+openapi: 3.1.0
+info:
+  title: Android Virtual OS Control Plane API
+  version: 1.0.0
+  description: |
+    This OpenAPI specification defines the API for both the main Control Plane Gateway and the in-vehicle Android Agent.
+    It covers all endpoints for UI interaction, application management, file system access, and system control.
+paths:
+  /health:
+    get:
+      summary: Health Check
+      responses:
+        '200':
+          description: Service is healthy
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    example: ok
