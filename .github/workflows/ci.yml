@@ -1,0 +1,51 @@
+name: CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  node-projects:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        dir: [ "web-ui", "control-plane/gateway", "control-plane/instance-manager", "tools/cli" ]
+    defaults:
+      run:
+        working-directory: ${{ matrix.dir }}
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+          cache: 'npm'
+          cache-dependency-path: ${{ matrix.dir }}/package-lock.json
+
+      - name: Install dependencies (if package.json exists)
+        run: |
+          if [ -f package.json ]; then
+            npm ci
+          else
+            echo "No package.json in $PWD; skipping"
+          fi
+
+      - name: Build (if build script exists)
+        run: |
+          if node -e "const s=require('./package.json').scripts||{}; process.exit(s.build?0:1)"; then
+            npm run -s build
+          else
+            echo "No build script; skipping"
+          fi
+
+      - name: Test (if test script exists)
+        run: |
+          if node -e "const s=require('./package.json').scripts||{}; process.exit(s.test?0:1)"; then
+            npm test --if-present
+          else
+            echo "No test script; skipping"
+          fi

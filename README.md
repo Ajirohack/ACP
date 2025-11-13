@@ -85,3 +85,4 @@ Key features include:
    ```
 
 3. Access the dashboard at http://localhost:7000
+[![CI](https://github.com/Ajirohack/ACP/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/Ajirohack/ACP/actions/workflows/ci.yml)
